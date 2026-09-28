@@ -1,0 +1,25 @@
+# Python / Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+
+# Data & Model Artifacts
+models/trained_model/*.joblib
+models/preprocessor/*.joblib
+data/processed/*
+!data/processed/.gitkeep
+data/raw/*.csv
+!data/raw/student_data.csv
+
+# RAG Index
+src/rag/index_store.json
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
