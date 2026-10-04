@@ -15,12 +15,13 @@ _cached_preprocessor = None
 def get_model_and_preprocessor():
     """Lazy loader for model and preprocessor artifacts with caching."""
     global _cached_model, _cached_preprocessor
-    if _cached_model is None:
+    if _cached_model is None or _cached_preprocessor is None:
         if not MODEL_FILE_PATH.exists():
-            raise FileNotFoundError(f"Trained model file missing at '{MODEL_FILE_PATH}'. Run model training first.")
+            logger.info("Model file missing. Running automatic model training on startup...")
+            from src.ml.train import train_and_select_best_model
+            train_and_select_best_model()
+            
         _cached_model = joblib.load(MODEL_FILE_PATH)
-        
-    if _cached_preprocessor is None:
         _cached_preprocessor = load_preprocessor()
         
     return _cached_model, _cached_preprocessor

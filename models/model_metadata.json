@@ -1,6 +1,6 @@
 {
     "model_name": "LogisticRegression",
-    "trained_at": "2026-09-28 20:07:06",
+    "trained_at": "2026-09-28 21:06:27",
     "random_seed": 42,
     "evaluation_metrics": {
         "model_name": "LogisticRegression",
